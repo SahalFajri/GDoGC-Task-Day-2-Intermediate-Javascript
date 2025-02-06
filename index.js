@@ -8,20 +8,38 @@ let notes = [
   }
 ]
 
-const createNote = () => {
+const createNote = (heading, description, created_by) => {
   // kode kalian
+  const id = notes.length + 1;
+  const created_at = Date.now();
+  notes.push({ id, heading, description, created_by, created_at });
 }
 
 const readNote = () => {
   // kode kalian
+  // notes.forEach(note => {
+  //   console.log(`ID: ${note.id}`);
+  //   console.log(`Heading: ${note.heading}`);
+  //   console.log(`Description: ${note.description}`);
+  //   console.log(`Created By: ${note.created_by}`);
+  //   console.log(`Created At: ${note.created_at}\n`);
+  // });
+  console.log(notes);
 }
 
-const updateNote = () => {
+const updateNote = (id, heading, description) => {
   // kode kalian
+  const index = notes.findIndex(note => note.id === id);
+
+  notes[index].heading = heading;
+  notes[index].description = description;
 }
 
-const deleteNote = () => {
+const deleteNote = (id) => {
   // kode kalian
+  const index = notes.findIndex(note => note.id === id);
+
+  notes.splice(index, 1);
 }
 
 // mengetes kode (diharapkan untuk tidak diganti): 
